@@ -1,0 +1,318 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --button-bg: #007bff;
+    --code-bg: #f5f5f5;
+    --code-border: #ddd;
+    --work-color: #007bff;
+    --break-color: #28a745;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --button-bg: #ff4444;
+    --code-bg: #2b2b2b;
+    --code-border: #444;
+    --work-color: #ff4444;
+    --break-color: #28a745;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: relative;
+    padding: 15px;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+#theme-toggle:hover {
+    opacity: 0.9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+a {
+    color: var(--button-bg);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.note {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+[data-theme="dark"] .note {
+    color: #aaa;
+}
+
+/* Pomodoro Timer Styles */
+.pomodoro-timer {
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto 20px;
+}
+
+.timer-display {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.progress-bar {
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+    height: 20px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: var(--work-color);
+    width: 0;
+    transition: width 1s linear, background 0.3s ease;
+}
+
+.status {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.timer-btn {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.timer-btn:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.timer-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Footer styles */
+.footer {
+    background: var(--code-bg);
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid var(--code-border);
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.twitter-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.social a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.social a:hover {
+    text-decoration: underline;
+}
+
+.social p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+}
+
+.donation {
+    margin-top: 15px;
+}
+
+.donation h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.btc-address {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#btc-code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    background: var(--bg-color);
+    padding: 4px 8px;
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    word-break: break-all;
+    max-width: 100%;
+}
+
+.copy-btn {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+
+.copy-btn:hover {
+    opacity: 0.9;
+}
+
+.thanks {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .pomodoro-timer {
+        padding: 15px;
+    }
+
+    .timer-display {
+        font-size: 2.5rem;
+    }
+
+    #theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 6px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .timer-display {
+        font-size: 2rem;
+    }
+
+    .status {
+        font-size: 1rem;
+    }
+
+    .timer-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .social {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .twitter-icon {
+        margin-bottom: 5px;
+    }
+
+    .donation h3 {
+        font-size: 1.1rem;
+    }
+
+    #btc-code {
+        font-size: 0.8rem;
+    }
+
+    .copy-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
